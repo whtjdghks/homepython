@@ -1,11 +1,14 @@
+
 SELECT *
 FROM city
 where CountryCode = 'KOR'
 AND Population > 1000000;
 
+
 select * 
 from city
 where Population between 7000000 and 8000000;
+-- 사이 값을 불러온다
 
 select *
 from city
@@ -294,3 +297,43 @@ RAND():0.0보다 크거나 같고 1.0보다 작은 하나의 실수를 무작위
 */
 
 select abs(-3),rand(),round(rand()*100,0);
+
+
+/*
+NOW() 현재날짜와 시간을 반환
+CURDATE() 현재 날짜 반환
+CURTIME() 현재 시각을 반환
+*/
+select NOW(),CURTIME(),CURDATE();
+
+/*
+DATE() 전달 받은 값에 해당하는 나라 정보 반환
+MONTH() 월에 해당하는 값을 반환하며 0 부터 12 사이의 값을 가짐
+DAY() 일에 해당하는 값을 반환 //
+HOUR() 시간에 해당하는 값을 반환 //
+MINUTE() 분에 해당하는 값을 반환 //
+SECOND() 초에 해당하는 값을 반환 //
+*/
+select now() as '현재',
+date(now()) as '년월일',
+month(now()) as '현재 월',
+hour(now())as '현재 시간',
+minute(now()) as '현재 분',
+second(now()) as '현재 초';
+
+/*
+MONTHNAME() 월에 해당하는 이름을 반환
+DAYNAME() 요일에 해당하는 이름을 반환
+*/
+
+select now(),
+monthname(now()),
+dayname(now()) ;
+
+/*
+DAYOFWEEK() 일자가 해당 주에서 몇번째 날인지 반환 1부터 7사이의 값을 반환 (일요일 =1, 토요일 =7)
+DAYOFMONTH() 일자가 해당 월에서 몇번째 날인지를 반환 , 0부터 31 사이의 값을 반환
+DAYOFYEAR() 일자가  해당연도에서 몇번째 날인지를 반환, 1부터 366사이의 값을 반환
+*/
+
+select dayofweek(now()),dayofmonth(now()),dayofyear(now())
